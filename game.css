@@ -1,0 +1,108 @@
+body{
+   margin: 0;
+   background-color: #3a3a3a;
+}
+
+.title{
+   color: #ddd;
+   border: 2px solid #3a3a3a;
+   font-size: 2rem;
+   text-align: center;
+   padding: 20px;
+}
+
+.grid-container{
+   width: 600px;
+   height: 900px;
+   margin: auto;
+   position: relative;
+   margin-bottom: 100px;
+}
+
+.grid-container::after{
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-image: url('./하니.jpg');
+   background-size: contain;
+}
+
+.bg{
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   display: grid;
+   grid-template-columns: 200px 200px 1fr;
+   grid-template-rows: 300px 300px 1fr;
+   /* border: 5px solid black; */
+   z-index: 1;
+}
+
+.input-container{
+   background-color: #ddd;
+   padding: 20px;
+   text-align: center;
+   background-image: linear-gradient(180deg, #303030, #3a3a3a);
+   -webkit-background-clip: text;
+   background-clip: border-box;
+   color: transparent;
+}
+
+.box{
+   border: 1px solid whitesmoke;
+   background-color: #3a3a3a;
+   transition: all 1s;
+   opacity: 1;
+}
+
+.hint{
+   background-color: whitesmoke;
+   border: none;
+   border-radius: 10px;
+   padding: 5px 10px;
+}
+
+.hint:hover{
+   background-color: #ffcd4a;
+   cursor: pointer;
+}
+
+.num{
+   font-size: 1rem;
+   border: 1px solid whitesmoke;
+   padding: 5px 10px;
+   border-radius: 10px;
+}
+
+
+@media screen and (max-width: 464px){
+	.grid-container{
+      width: 300px;
+      height: 450px;
+      margin: auto;
+      position: relative;
+      margin-bottom: 100px;
+   }
+   
+   .grid-container::after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('./하니.jpg');
+      background-size: contain;
+      background-position: center;
+   }
+   
+   .bg{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: grid;
+      grid-template-columns: 100px 100px 1fr;
+      grid-template-rows: 150px 150px 1fr;
+      /* border: 5px solid black; */
+      z-index: 1;
+   }
+}

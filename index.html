@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./game.css">
+   <title>G.A.M.E</title>
+</head>
+
+<body>
+   <div class="main-container">
+
+      <div class="title">나는 누구일까요❓ <button class="hint">💡Hint</button> <span class="num count">남은힌트: 3</span></span></div>
+
+      <div class="input-container">
+         <input type="text" placeholder="who?" class="result"> <button class="resultBtn">입력</button>
+      </div>
+
+      <div class="grid-container">
+         <div class="bg">
+            <div class="grid-box1 box"></div>
+            <div class="grid-box2 box"></div>
+            <div class="grid-box3 box"></div>
+            <div class="grid-box4 box"></div>
+            <div class="grid-box5 box"></div>
+            <div class="grid-box6 box"></div>
+            <div class="grid-box7 box"></div>
+            <div class="grid-box8 box"></div>
+            <div class="grid-box9 box"></div>
+         </div>
+      </div>
+   </div>
+
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous">
+      </script>
+   <script>
+      // setTimeout(function(){
+      //    if(맞힘 != true){
+      //       alert(`정답은 NewJeans의 '하니' 입니다.`)
+      //    }
+      // }, 10000)
+
+
+      function rand(min, max) {
+         return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function numFind(element){
+         if(element == n)
+            return true;
+      }
+      var count = 3;
+      let cnt = 0;
+      let arr = [];
+      let n = rand(1, 9);
+      let res;
+      let 맞힘 = false;
+
+      $(`.grid-box${n}`).css('opacity', '0');
+
+      $('.hint').click(function () {
+         if(count > 0){
+            count--;
+            n = rand(1, 9)
+   
+            $(`.grid-box${n}`).css('opacity', '0');
+            
+            // console.log(arr);
+            // console.log(n);
+            $('.count').html(`남은힌트: ${count}`);
+            $('.count').css('font-size', '1rem');
+            $('.count').css('border', '1px solid whitesmoke');
+            $('.count').css('padding', '5px 10px');
+            $('.count').css('border-radius', '10px');
+         }
+         // else{
+         //    alert(`정답은 NewJeans의 '하니' 입니다.`)
+         // }
+      })
+
+      $('.resultBtn').click(function(){
+         count--;
+         res = $('.result').val()
+
+         if(res == '하니' || res == 'HANNI' || res == 'hanni'){
+            alert('🎊 정답입니다!👍 🎊');
+            맞힘 = true;
+            $(`.box`).css('opacity', '0');
+         }
+
+      })
+      console.log(count)
+   </script>
+</body>
+
+</html>
