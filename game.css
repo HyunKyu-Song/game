@@ -24,8 +24,20 @@ body{
    position: absolute;
    width: 100%;
    height: 100%;
+   /* background-image: url('./cat.jpg'); */
+   background-position: center;
    background-image: url('./하니.jpg');
    background-size: contain;
+}
+
+.time{
+   width: 30%;
+   margin: auto;
+   margin-top: 10px;
+   padding: 20px;
+   color: whitesmoke;
+   border-bottom: 1px solid whitesmoke;
+   border-top: 1px solid whitesmoke;
 }
 
 .bg{
@@ -83,6 +95,9 @@ body{
       font-size: 1rem;
       text-align: center;
       padding: 20px;
+   }
+   .time{
+      width: 50%;
    }
 	.grid-container{
       width: 300px;

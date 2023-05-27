@@ -12,10 +12,13 @@
 <body>
    <div class="main-container">
 
-      <div class="title">나는 누구일까요❓ <button class="hint">💡Hint</button> <span class="num count">남은힌트: 3</span></span></div>
+      <!-- <div class="title">나는 누구일까요❓ <button class="hint">💡Hint</button> <span class="num count">남은힌트: 3</span></span></div> -->
+
+      <div class="title">나는 누구일까요❓ <button class="hint">💡Hint</button></div>
 
       <div class="input-container">
          <input type="text" placeholder="who?" class="result"> <button class="resultBtn">입력</button>
+         <div class="time">남은시간: <span class="sec">60초🔥</span></div>
       </div>
 
       <div class="grid-container">
@@ -31,17 +34,29 @@
             <div class="grid-box9 box"></div>
          </div>
       </div>
+
    </div>
 
    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous">
       </script>
    <script>
-      // setTimeout(function(){
-      //    if(맞힘 != true){
-      //       alert(`정답은 NewJeans의 '하니' 입니다.`)
-      //    }
-      // }, 10000)
+
+      let t = 59;
+      setInterval(() => {
+         if(t >= 0){
+            $('.sec').html(`${t}초🔥`);
+            t--;
+         }
+         else if(맞힘 == true){
+            $('.time').css('display', 'none');
+            $(`.box`).css('opacity', '0');
+         }
+         else{
+            $('.time').css('display', 'display');
+            $(`.box`).css('opacity', '0');
+         }
+      }, 1000);
 
 
       function rand(min, max) {
@@ -64,17 +79,19 @@
       $('.hint').click(function () {
          if(count > 0){
             count--;
-            n = rand(1, 9)
+            n = rand(1, 9);
+            m = rand(1, 9);
    
             $(`.grid-box${n}`).css('opacity', '0');
-            
+            $(`.grid-box${m}`).css('opacity', '0');
+            $(`.hint`).css('display', 'none');
             // console.log(arr);
             // console.log(n);
-            $('.count').html(`남은힌트: ${count}`);
-            $('.count').css('font-size', '1rem');
-            $('.count').css('border', '1px solid whitesmoke');
-            $('.count').css('padding', '5px 10px');
-            $('.count').css('border-radius', '10px');
+            // $('.count').html(`남은힌트: ${count}`);
+            // $('.count').css('font-size', '1rem');
+            // $('.count').css('border', '1px solid whitesmoke');
+            // $('.count').css('padding', '5px 10px');
+            // $('.count').css('border-radius', '10px');
          }
          // else{
          //    alert(`정답은 NewJeans의 '하니' 입니다.`)
@@ -85,6 +102,7 @@
          count--;
          res = $('.result').val()
 
+         // if(res == '고양이' || res == 'cat' || res == 'CAT'){
          if(res == '하니' || res == 'HANNI' || res == 'hanni'){
             alert('🎊 정답입니다!👍 🎊');
             맞힘 = true;
