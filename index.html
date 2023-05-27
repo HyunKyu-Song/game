@@ -42,18 +42,18 @@
       </script>
    <script>
 
-      let t = 59;
+      let t = 2;
       setInterval(() => {
-         if(t >= 0){
-            $('.sec').html(`${t}초🔥`);
-            t--;
-         }
-         else if(맞힘 == true){
+         if(맞힘 == true){
             $('.time').css('display', 'none');
             $(`.box`).css('opacity', '0');
          }
+         else if(t > 0){
+            $('.sec').html(`${t}초🔥`);
+            t--;
+         }
          else{
-            $('.time').css('display', 'display');
+            $('.time').css('display', 'none');
             $(`.box`).css('opacity', '0');
          }
       }, 1000);
